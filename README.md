@@ -1,6 +1,6 @@
 # Serify
 
-Serify is a wrapper around the Twilio Verify REST API. This simple and lightweight module allows you to send and verify SMS codes with two easy to use methods. Both methods use async/await making it easy to integrate into your existing codebase.
+Serify is a wrapper around the Twilio Verify REST API. This simple and lightweight wrapper allows you to send and verify SMS codes with two easy to use methods – and only has one dependency. Both methods use async/await making it easy to integrate into your existing codebase.
 
 ## Example
 
@@ -10,15 +10,15 @@ To send a verification code using, use the `check` method as shown below:
 import Serify from 'serify';
 
 const auth = new Serify({
-	twilioServiceSid: 'YOUR_TWILIO_SERVICE_SID',
-	twilioAccountSid: 'YOUR_TWILIO_ACCOUNT_SID',
-	twilioAuthToken: 'YOUR_TWILIO_AUTH_TOKEN',
+	twilioServiceSid: 'YOUR_TWILIO_SERVICE_SID', // required
+	twilioAccountSid: 'YOUR_TWILIO_ACCOUNT_SID', // required
+	twilioAuthToken: 'YOUR_TWILIO_AUTH_TOKEN', // required
 });
 
 const send = async () => {
 	try {
 		const send = await auth.start({
-			phone: 'USER_PHONE_NUMBER',
+			phone: 'USER_PHONE_NUMBER', // required
 			country: 1, // optional
 		});
 
@@ -37,17 +37,17 @@ To verify a code, use the `verify` method as shown below:
 import Serify from 'serify';
 
 const auth = new Serify({
-	twilioServiceSid: 'YOUR_TWILIO_SERVICE_SID',
-	twilioAccountSid: 'YOUR_TWILIO_ACCOUNT_SID',
-	twilioAuthToken: 'YOUR_TWILIO_AUTH_TOKEN',
+	twilioServiceSid: 'YOUR_TWILIO_SERVICE_SID', // required
+	twilioAccountSid: 'YOUR_TWILIO_ACCOUNT_SID', // required
+	twilioAuthToken: 'YOUR_TWILIO_AUTH_TOKEN', // required
 });
 
 const verify = async () => {
 	try {
 		const verify = await auth.verify({
-			phone: 'USER_PHONE_NUMBER',
+			phone: 'USER_PHONE_NUMBER', // required
 			country: 1, // optional
-			code: 'USER_VERIFICATION_CODE',
+			code: 'USER_VERIFICATION_CODE', // required
 		});
 
 		console.log(verify);
