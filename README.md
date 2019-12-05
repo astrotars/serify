@@ -1,9 +1,6 @@
 ![Dependency Status](https://img.shields.io/david/nparsons08/serify)
-
 ![Dependency Size](https://img.shields.io/github/size/nparsons08/serify/dist/index.js)
-
 ![Open Issues](https://img.shields.io/github/issues-raw/nparsons08/serify)
-
 ![Version](https://img.shields.io/npm/v/serify)
 
 [Serify](https://www.npmjs.com/package/serify) is a wrapper around the [Twilio Verify](https://www.twilio.com/verify) [REST API](https://www.twilio.com/docs/verify/api). This lightweight and straightforward wrapper allows you to send and verify SMS codes with two easy to use methods – and it only has one dependency. Both methods use of async/await, making it easy to integrate into your existing codebase.
