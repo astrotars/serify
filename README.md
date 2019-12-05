@@ -64,7 +64,7 @@ verify();
 
 ## Obtaining Tokens
 
-Twilio can be confusing at times as the API requires an **Account Level SID**, an **Account Auth Token**, in addition to a **Service SID**. All tokens can be found on your dashboard.
+Twilio can be confusing at times as the API requires an **Account Level SID**, an **Account Auth Token**, in addition to a **Service SID**. All tokens can be found within your [Twilio console](https://www.twilio.com/console).
 
 1. The account level SID and Account Auth Token are provided at the top level of your account.
 2. The service specific SID can be found when creating your application for the [Twilio Verify](https://www.twilio.com/verify) product.
