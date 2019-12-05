@@ -68,3 +68,5 @@ Twilio can be confusing at times as the API requires an **Account Level SID**, a
 
 1. The account level SID and Account Auth Token are provided at the top level of your account.
 2. The service specific SID can be found when creating your application for the [Twilio Verify](https://www.twilio.com/verify) product.
+
+[![Beerpay](https://beerpay.io/nparsons08/serify/badge.svg)](https://beerpay.io/nparsons08/serify)
