@@ -29,7 +29,7 @@ class Serify {
     country
   }) {
     try {
-      const response = await this.fetch.post({
+      const response = await this.fetch.post('Verifications', {
         phone: `+${country ? country : '1'}${phone}`
       });
       return {
@@ -39,24 +39,26 @@ class Serify {
     } catch (error) {
       return new Error(JSON.stringify(error));
     }
-  } // async verify({ phone, code, country }) {
-  // 	try {
-  // 		const response = await this.fetch.post(`${this.baseUrl}/check`, {
-  // 			verification_code: code,
-  // 			phone_number: phone,
-  // 			country_code: country || 1,
-  // 		});
-  // 		return response;
-  // 	} catch (error) {
-  // 		return new Error(
-  // 			JSON.stringify({
-  // 				status: error.response.status,
-  // 				message: error.response.data.message,
-  // 			})
-  // 		);
-  // 	}
-  // }
+  }
 
+  async verify({
+    phone,
+    code,
+    country
+  }) {
+    try {
+      const response = await this.fetch.post('VerificationCheck', {
+        phone: `+${country ? country : '1'}${phone}`,
+        code
+      });
+      return {
+        code: response.status,
+        data: response.data.status
+      };
+    } catch (error) {
+      return new Error(JSON.stringify(error));
+    }
+  }
 
 }
 

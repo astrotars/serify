@@ -26,24 +26,21 @@ class Fetch {
     });
 
     this.fetch = fetch;
-  } // async get(path, params) {
-  // 	const { status, data } = await this.fetch.get(path, {
-  // 		to: `${params.countryCode}${params.phone}`,
-  // 	});
-  // 	return { status, data };
-  // }
+  }
 
-
-  async post(payload) {
+  async post({
+    path,
+    payload
+  }) {
     const {
       status,
       data
     } = await this.fetch.request({
       method: 'POST',
-      url: 'Verifications',
+      url: path,
       data: _querystring.default.stringify({
         To: payload.phone,
-        Channel: 'sms'
+        Code: payload.code
       })
     });
     return {
