@@ -7,7 +7,7 @@
 
 ## Example
 
-To send a verification code using, use the `check` method as shown below:
+To send a verification code using, use the `start` method as shown below:
 
 ```javascript
 import Serify from 'serify';
@@ -18,20 +18,20 @@ const auth = new Serify({
 	twilioAuthToken: 'YOUR_TWILIO_AUTH_TOKEN', // required
 });
 
-const send = async () => {
+const start = async () => {
 	try {
-		const send = await auth.start({
+		const start = await auth.start({
 			phone: 'USER_PHONE_NUMBER', // required
 			country: 1, // optional
 		});
 
-		console.log(send);
+		console.log(start);
 	} catch (error) {
 		console.log(error);
 	}
 };
 
-send();
+start();
 ```
 
 To verify a code, use the `verify` method as shown below:
