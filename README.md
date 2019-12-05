@@ -6,7 +6,7 @@ Serify is a wrapper around the Twilio Verify REST API. This simple and lightweig
 
 To send a verification code using, use the `check` method as shown below:
 
-```
+```javascript
 import Serify from 'serify';
 
 const auth = new Serify({
@@ -33,7 +33,7 @@ send();
 
 To verify a code, use the `verify` method as shown below:
 
-```
+```javascript
 import Serify from 'serify';
 
 const auth = new Serify({
@@ -47,7 +47,7 @@ const verify = async () => {
 		const verify = await auth.verify({
 			phone: 'USER_PHONE_NUMBER',
 			country: 1, // optional
-            code: 'USER_VERIFICATION_CODE',
+			code: 'USER_VERIFICATION_CODE',
 		});
 
 		console.log(verify);
