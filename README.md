@@ -1,6 +1,6 @@
 # Serify
 
-Serify is a wrapper around the Twilio Verify REST API. This simple and lightweight wrapper allows you to send and verify SMS codes with two easy to use methods – and only has one dependency. Both methods use async/await making it easy to integrate into your existing codebase.
+Serify is a wrapper around the [Twilio Verify](https://www.twilio.com/verify) REST [API](https://www.twilio.com/docs/verify/api). This simple and lightweight wrapper allows you to send and verify SMS codes with two easy to use methods – and only has one dependency. Both methods use async/await making it easy to integrate into your existing codebase.
 
 ## Example
 
@@ -64,4 +64,4 @@ verify();
 Twilio can be confusing at times as the API requires an **Account Level SID**, an **Account Auth Token**, in addition to a **Service SID**. All tokens can be found on your dashboard.
 
 1. The account level SID and Account Auth Token are provided at the top level of your account.
-2. The service specific SID can be found when creating your application for the Twilio Verify product.
+2. The service specific SID can be found when creating your application for the [Twilio Verify](https://www.twilio.com/verify) product.
