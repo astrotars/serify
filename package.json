@@ -7,6 +7,14 @@
 	"author": "Nick Parsons <nparsons08@gmail.com>",
 	"license": "MIT",
 	"private": false,
+	"keywords": [
+		"twilio",
+		"twilio auth",
+		"twilio verify",
+		"sms",
+		"sms auth",
+		"sms verification"
+	],
 	"scripts": {
 		"build": "yarn lint && babel src --out-dir dist",
 		"start": "node dist/index.js",
