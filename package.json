@@ -6,5 +6,34 @@
 	"repository": "git@github.com:nparsons08/serify.git",
 	"author": "Nick Parsons <nparsons08@gmail.com>",
 	"license": "MIT",
-	"private": false
+	"private": false,
+	"scripts": {
+		"build": "yarn lint && babel src --out-dir dist",
+		"start": "node dist/index.js",
+		"dev": "npx babel-node src/index.js",
+		"lint": "yarn prettier --write --check --config ./.prettierrc \"**/*.js\" && eslint --fix ./src",
+		"test": "npx babel-node examples/index.js"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "yarn lint && rm -rf dist && yarn run build"
+		}
+	},
+	"dependencies": {
+		"axios": "^0.19.0"
+	},
+	"devDependencies": {
+		"@babel/cli": "^7.7.4",
+		"@babel/core": "^7.7.4",
+		"@babel/node": "^7.7.4",
+		"@babel/preset-env": "^7.7.4",
+		"babel-eslint": "^10.0.3",
+		"eslint": "^6.7.2",
+		"eslint-config-airbnb": "^18.0.1",
+		"eslint-plugin-babel": "^5.3.0",
+		"eslint-plugin-import": "^2.18.2",
+		"eslint-plugin-jsx-a11y": "^6.2.3",
+		"husky": "^3.1.0",
+		"prettier": "^1.19.1"
+	}
 }
