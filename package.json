@@ -1,6 +1,6 @@
 {
 	"name": "serify",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Lightweight SMS code validation library for Twilio Verify – Node.js",
 	"main": "index.js",
 	"repository": "git@github.com:nparsons08/serify.git",
