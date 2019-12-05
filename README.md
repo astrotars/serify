@@ -1,4 +1,4 @@
-![Serify](https://i.imgur.com/1UMWZSy.png)
+![Serify](https://i.imgur.com/HFbmrGa.jpg)
 
 ![Dependency Status](https://img.shields.io/david/nparsons08/serify)
 ![Dependency Size](https://img.shields.io/github/size/nparsons08/serify/dist/index.js)
