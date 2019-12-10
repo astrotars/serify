@@ -23,8 +23,8 @@ const auth = new Serify({
 const start = async () => {
 	try {
 		const start = await auth.start({
-			phone: 'USER_PHONE_NUMBER', // required
-			country: 1, // optional
+			phone: 'USER_PHONE_NUMBER',
+			country: 1,
 		});
 
 		console.log(start);
@@ -50,9 +50,9 @@ const auth = new Serify({
 const verify = async () => {
 	try {
 		const verify = await auth.verify({
-			phone: 'USER_PHONE_NUMBER', // required
-			country: 1, // optional
-			code: 'USER_VERIFICATION_CODE', // required
+			phone: 'USER_PHONE_NUMBER',
+			country: 1,
+			code: '1990',
 		});
 
 		console.log(verify);
