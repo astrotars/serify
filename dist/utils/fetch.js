@@ -42,7 +42,6 @@ class Fetch {
         obj['Code'] = payload.code;
       }
 
-      console.log(obj);
       const {
         status,
         data
