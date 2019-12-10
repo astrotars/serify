@@ -25,8 +25,6 @@ export default class Fetch {
 				obj['Code'] = payload.code;
 			}
 
-			console.log(obj);
-
 			const { status, data } = await this.fetch.request({
 				method: 'POST',
 				url: path,
