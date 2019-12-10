@@ -6,17 +6,33 @@ const auth = new Serify({
 	twilioAuthToken: 'YOUR_TWILIO_AUTH_TOKEN',
 });
 
-const check = async () => {
+const start = async () => {
 	try {
-		const check = await auth.start({
+		const start = await auth.start({
 			phone: 'USER_PHONE_NUMBER',
 			country: 1,
 		});
 
-		console.log(check);
+		console.log(start);
 	} catch (error) {
 		console.log(error);
 	}
 };
 
-check();
+start();
+
+const verify = async () => {
+	try {
+		const verify = await auth.verify({
+			phone: 'USER_PHONE_NUMBER',
+			country: 1,
+			code: '1990',
+		});
+
+		console.log(verify);
+	} catch (error) {
+		console.log(error);
+	}
+};
+
+//verify();

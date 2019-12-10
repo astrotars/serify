@@ -32,27 +32,32 @@ class Fetch {
     path,
     payload
   }) {
-    const obj = {
-      To: payload.phone,
-      Channel: 'sms'
-    };
+    try {
+      const obj = {
+        To: payload.phone,
+        Channel: 'sms'
+      };
 
-    if ('code' in payload) {
-      obj['Code'] = payload.code;
+      if ('code' in payload) {
+        obj['Code'] = payload.code;
+      }
+
+      console.log(obj);
+      const {
+        status,
+        data
+      } = await this.fetch.request({
+        method: 'POST',
+        url: path,
+        data: _querystring.default.stringify(obj)
+      });
+      return {
+        status,
+        data
+      };
+    } catch (error) {
+      return error;
     }
-
-    const {
-      status,
-      data
-    } = await this.fetch.request({
-      method: 'POST',
-      url: path,
-      data: _querystring.default.stringify(obj)
-    });
-    return {
-      status,
-      data
-    };
   }
 
 }

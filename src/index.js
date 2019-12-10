@@ -14,26 +14,34 @@ export default class Serify {
 
 	async start({ phone, country }) {
 		try {
-			const response = await this.fetch.post('Verifications', {
-				phone: `+${country ? country : '1'}${phone}`,
+			const response = await this.fetch.post({
+				path: 'Verifications',
+				payload: {
+					phone: `+${country ? country : '1'}${phone}`,
+				},
 			});
 
-			return { code: response.status, data: response.data.status };
+			return { code: response.status, data: 'OK' };
 		} catch (error) {
-			return new Error(JSON.stringify(error));
+			return new Error(error);
 		}
 	}
 
-	async verify({ phone, code, country }) {
+	async verify({ phone, country, code }) {
 		try {
-			const response = await this.fetch.post('VerificationCheck', {
-				phone: `+${country ? country : '1'}${phone}`,
-				code,
+			const response = await this.fetch.post({
+				path: 'VerificationCheck',
+				payload: {
+					phone: `+${country ? country : '1'}${phone}`,
+					code: code.toString(),
+				},
 			});
 
-			return { code: response.status, data: response.data.status };
+			console.log(response);
+
+			return { code: response.status, data: 'OK' };
 		} catch (error) {
-			return new Error(JSON.stringify(error));
+			return new Error(error);
 		}
 	}
 }
