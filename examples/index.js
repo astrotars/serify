@@ -35,4 +35,4 @@ const verify = async () => {
 	}
 };
 
-//verify();
+verify();
