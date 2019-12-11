@@ -7,7 +7,7 @@
 
 > **Note**: This package is still under heavy development and methods can change at any point in time. Use with caution. Contributors welcome.
 
-[Serify](https://www.npmjs.com/package/serify) is a wrapper around the [Twilio Verify](https://www.twilio.com/verify) [REST API](https://www.twilio.com/docs/verify/api). This lightweight and straightforward wrapper allows you to send and verify SMS codes with two easy to use methods – and it only has one dependency. Both methods use of async/await, making it easy to integrate into your existing codebase.
+[Serify](https://www.npmjs.com/package/serify) is a wrapper around the [Twilio Verify](https://www.twilio.com/verify) [REST API](https://www.twilio.com/docs/verify/api). This lightweight and straightforward wrapper allows you to send and verify SMS codes with two easy to use methods – and it only has two dependencies. Both methods use of async/await, making it easy to integrate into your existing codebase.
 
 ## Example
 
@@ -17,16 +17,16 @@ To send a verification code using, use the `start` method as shown below:
 import Serify from 'serify';
 
 const auth = new Serify({
-	twilioServiceSid: 'YOUR_TWILIO_SERVICE_SID', // required
-	twilioAccountSid: 'YOUR_TWILIO_ACCOUNT_SID', // required
-	twilioAuthToken: 'YOUR_TWILIO_AUTH_TOKEN', // required
+	twilioServiceSid: 'YOUR_TWILIO_SERVICE_SID', // required (found in the twilio console)
+	twilioAccountSid: 'YOUR_TWILIO_ACCOUNT_SID', // required (found in the twilio console)
+	twilioAuthToken: 'YOUR_TWILIO_AUTH_TOKEN', // required (found in the twilio console)
 });
 
 const start = async () => {
 	try {
 		const start = await auth.start({
-			phone: 'USER_PHONE_NUMBER',
-			country: 1,
+			phone: 'USER_PHONE_NUMBER', // users phone number in E.164 format
+			country: 'USA', // ISO-3166 alpha 3 format (e.g. USA, CAN, etc.)
 		});
 
 		console.log(start);
@@ -44,17 +44,17 @@ To verify a code, use the `verify` method as shown below:
 import Serify from 'serify';
 
 const auth = new Serify({
-	twilioServiceSid: 'YOUR_TWILIO_SERVICE_SID', // required
-	twilioAccountSid: 'YOUR_TWILIO_ACCOUNT_SID', // required
-	twilioAuthToken: 'YOUR_TWILIO_AUTH_TOKEN', // required
+	twilioServiceSid: 'YOUR_TWILIO_SERVICE_SID', // required (found in the twilio console)
+	twilioAccountSid: 'YOUR_TWILIO_ACCOUNT_SID', // required (found in the twilio console)
+	twilioAuthToken: 'YOUR_TWILIO_AUTH_TOKEN', // required (found in the twilio console)
 });
 
 const verify = async () => {
 	try {
 		const verify = await auth.verify({
-			phone: 'USER_PHONE_NUMBER',
-			country: 1,
-			code: '1990',
+			phone: 'USER_PHONE_NUMBER', // users phone number in E.164 format
+			country: 'USA', // ISO-3166 alpha 3 format (e.g. USA, CAN, etc.)
+			code: '1990', // length is configurable via the twilio console
 		});
 
 		console.log(verify);

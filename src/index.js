@@ -1,3 +1,5 @@
+import validate from 'phone';
+
 import Fetch from './utils/fetch';
 
 export default class Serify {
@@ -14,10 +16,16 @@ export default class Serify {
 
 	async start({ phone, country }) {
 		try {
+			const number = validate(phone, country ? country : 'USA');
+
+			if (!number) {
+				throw new Error('Invalid phone number. Please provide the country code in an ISO-3166 alpha 3 format.');
+			}
+
 			const response = await this.fetch.post({
 				path: 'Verifications',
 				payload: {
-					phone: `+${country ? country : '1'}${phone}`,
+					phone: number,
 				},
 			});
 
@@ -29,10 +37,20 @@ export default class Serify {
 
 	async verify({ phone, country, code }) {
 		try {
+			const number = validate(phone, country ? country : 'USA');
+
+			if (!number) {
+				throw new Error('Invalid phone number. Please provide the country code in an ISO-3166 alpha 3 format.');
+			}
+
+			if (code.length <= 3) {
+				throw new Error('Invalid SMS code.');
+			}
+
 			const response = await this.fetch.post({
 				path: 'VerificationCheck',
 				payload: {
-					phone: `+${country ? country : '1'}${phone}`,
+					phone: number,
 					code: code.toString(),
 				},
 			});
