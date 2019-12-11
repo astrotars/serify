@@ -5,6 +5,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
+var _phone = _interopRequireDefault(require("phone"));
+
 var _fetch = _interopRequireDefault(require("./utils/fetch"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -29,10 +31,16 @@ class Serify {
     country
   }) {
     try {
+      const number = (0, _phone.default)(phone, country ? country : 'USA');
+
+      if (!number) {
+        throw new Error('Invalid phone number. Please provide the country code in an ISO-3166 alpha 3 format.');
+      }
+
       const response = await this.fetch.post({
         path: 'Verifications',
         payload: {
-          phone: `+${country ? country : '1'}${phone}`
+          phone: number
         }
       });
       return {
@@ -50,10 +58,20 @@ class Serify {
     code
   }) {
     try {
+      const number = (0, _phone.default)(phone, country ? country : 'USA');
+
+      if (!number) {
+        throw new Error('Invalid phone number. Please provide the country code in an ISO-3166 alpha 3 format.');
+      }
+
+      if (code.length <= 3) {
+        throw new Error('Invalid SMS code.');
+      }
+
       const response = await this.fetch.post({
         path: 'VerificationCheck',
         payload: {
-          phone: `+${country ? country : '1'}${phone}`,
+          phone: number,
           code: code.toString()
         }
       });

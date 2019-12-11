@@ -19,7 +19,9 @@ export default class Serify {
 			const number = validate(phone, country ? country : 'USA');
 
 			if (!number) {
-				throw new Error('Invalid phone number. Please provide the country code in an ISO-3166 alpha 3 format.');
+				throw new Error(
+					'Invalid phone number. Please provide the country code in an ISO-3166 alpha 3 format.'
+				);
 			}
 
 			const response = await this.fetch.post({
@@ -40,7 +42,9 @@ export default class Serify {
 			const number = validate(phone, country ? country : 'USA');
 
 			if (!number) {
-				throw new Error('Invalid phone number. Please provide the country code in an ISO-3166 alpha 3 format.');
+				throw new Error(
+					'Invalid phone number. Please provide the country code in an ISO-3166 alpha 3 format.'
+				);
 			}
 
 			if (code.length <= 3) {
