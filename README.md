@@ -11,6 +11,8 @@
 
 ## Example
 
+> **Note**: _The phone number is automatically converted when passing an ISO-3166 country code. For example, when passing `USA` as the country, the library will automatically validate and construct a valid phone number such as +15554443333._
+
 To send a verification code using, use the `start` method as shown below:
 
 ```javascript
