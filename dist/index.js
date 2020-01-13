@@ -75,7 +75,6 @@ class Serify {
           code: code.toString()
         }
       });
-      console.log(response);
       return {
         code: response.status,
         data: 'OK'

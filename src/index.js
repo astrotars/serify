@@ -59,8 +59,6 @@ export default class Serify {
 				},
 			});
 
-			console.log(response);
-
 			return { code: response.status, data: 'OK' };
 		} catch (error) {
 			return new Error(error);
