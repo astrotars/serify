@@ -31,7 +31,7 @@ export default class Serify {
 				},
 			});
 
-			return { code: response.status, data: 'OK' };
+			return { code: response.status, data: response.data };
 		} catch (error) {
 			return new Error(error);
 		}
@@ -59,7 +59,7 @@ export default class Serify {
 				},
 			});
 
-			return { code: response.status, data: 'OK' };
+			return { code: response.status, data: response.data };
 		} catch (error) {
 			return new Error(error);
 		}
