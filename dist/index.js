@@ -45,7 +45,7 @@ class Serify {
       });
       return {
         code: response.status,
-        data: 'OK'
+        data: response.data
       };
     } catch (error) {
       return new Error(error);
@@ -77,7 +77,7 @@ class Serify {
       });
       return {
         code: response.status,
-        data: 'OK'
+        data: response.data
       };
     } catch (error) {
       return new Error(error);
